@@ -342,6 +342,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
   background: #d0d0d0;
   border-bottom: 1px solid #888;
   padding: 6px 8px;
@@ -356,7 +358,8 @@ body {
 
 .leaderboard-actions {
   display: flex;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
 }
 
 .btn-leaderboard {
@@ -560,7 +563,7 @@ body {
   cursor: not-allowed;
 }
 
-/* Year filter dropdown */
+/* Year filter dropdown (legacy) */
 .year-filter-select {
   background: #fff;
   border: 1px solid #888;
@@ -576,4 +579,83 @@ body {
 .year-filter-select:focus {
   outline: none;
   border-color: #555;
+}
+
+/* Year timeline selector */
+.year-timeline {
+  display: flex;
+  border: 1px solid #888;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.timeline-segment {
+  background: #f5f5f5;
+  border: none;
+  border-right: 1px solid #888;
+  padding: 4px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  color: #555;
+}
+
+.timeline-segment:last-child {
+  border-right: none;
+}
+
+.timeline-segment:hover {
+  background: #fff;
+}
+
+.timeline-segment.active {
+  background: #444;
+  color: #fff;
+}
+
+/* Rank change toggle */
+.rank-change-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #555;
+  cursor: pointer;
+}
+
+.rank-change-toggle input {
+  cursor: pointer;
+}
+
+/* Rank change indicators */
+.rank-change {
+  font-size: 10px;
+  margin-left: 4px;
+}
+
+.rank-change.up {
+  color: #2a2;
+}
+
+.rank-change.down {
+  color: #c00;
+}
+
+.rank-change.same {
+  color: #888;
+}
+
+/* Rank change column (separate from rank) */
+.th-rank-change { width: 50px; text-align: center; }
+
+.cell-rank-change {
+  text-align: center;
+  font-size: 11px;
+}
+
+/* Incomplete year badge */
+.year-badge {
+  font-size: 10px;
+  color: #c00;
+  font-weight: normal;
+  margin-left: 6px;
 }
