@@ -1,0 +1,533 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  background: #eee;
+  color: #222;
+  line-height: 1.3;
+}
+
+/* App container */
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #444;
+  color: #fff;
+  padding: 8px 12px;
+  border: 1px solid #333;
+}
+
+.header h1 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.btn-view-toggle {
+  background: #666;
+  border: 1px solid #888;
+  color: #fff;
+  padding: 4px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-view-toggle:hover {
+  background: #777;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: #ddd;
+  border: 1px solid #888;
+  border-top: none;
+  padding: 4px 8px;
+}
+
+.btn-add-year {
+  background: #f5f5f5;
+  border: 1px solid #888;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-add-year:hover {
+  background: #fff;
+}
+
+/* Import button */
+.import-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-import {
+  background: #f5f5f5;
+  border: 1px solid #888;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-import:hover {
+  background: #fff;
+}
+
+.btn-import:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.import-error {
+  color: #c00;
+  font-size: 11px;
+}
+
+/* Main content */
+.main {
+  border: 1px solid #888;
+  border-top: none;
+  background: #fff;
+}
+
+/* Year section */
+.year-section {
+  border-bottom: 1px solid #888;
+}
+
+.year-section:last-of-type {
+  border-bottom: none;
+}
+
+.year-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #d0d0d0;
+  border-bottom: 1px solid #888;
+  padding: 4px 8px;
+}
+
+.year-name-input {
+  background: transparent;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 2px 4px;
+  text-transform: uppercase;
+  width: 200px;
+}
+
+.year-name-input:hover,
+.year-name-input:focus {
+  background: #fff;
+  border-color: #888;
+  outline: none;
+}
+
+.year-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+  font-size: 12px;
+}
+
+.stat {
+  white-space: nowrap;
+}
+
+.btn-remove-year {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.btn-remove-year:hover {
+  color: #c00;
+}
+
+/* Course table */
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.course-table th {
+  background: #e8e8e8;
+  border-bottom: 1px solid #888;
+  padding: 4px 6px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.th-name { width: 35%; }
+.th-grade { width: 10%; }
+.th-level { width: 13%; }
+.th-credits { width: 12%; text-align: right; }
+.th-points { width: 18%; text-align: right; }
+.th-action { width: 12%; }
+
+.course-row td {
+  border-bottom: 1px solid #ccc;
+  padding: 0;
+}
+
+.course-row:last-child td {
+  border-bottom: none;
+}
+
+.cell {
+  padding: 2px 4px;
+  height: 28px;
+  vertical-align: middle;
+}
+
+.cell-credits {
+  text-align: right;
+  padding-right: 8px;
+}
+
+.cell-points {
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+  font-size: 12px;
+  padding: 2px 8px;
+  color: #444;
+  text-align: right;
+}
+
+.cell-action {
+  text-align: center;
+}
+
+/* Input styles */
+.input-text,
+.input-select,
+.input-number {
+  width: 100%;
+  height: 24px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: 12px;
+  padding: 2px 4px;
+}
+
+.input-text:hover,
+.input-text:focus,
+.input-select:hover,
+.input-select:focus,
+.input-number:hover,
+.input-number:focus {
+  background: #fff;
+  border-color: #888;
+  outline: none;
+}
+
+.input-select {
+  cursor: pointer;
+}
+
+.input-number {
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+  text-align: right;
+  padding-right: 8px;
+}
+
+/* Remove number input spinners */
+.input-number::-webkit-outer-spin-button,
+.input-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-number {
+  -moz-appearance: textfield;
+}
+
+/* Buttons */
+.btn-remove {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.btn-remove:hover {
+  color: #c00;
+}
+
+.btn-add-course {
+  display: block;
+  width: 100%;
+  background: #f8f8f8;
+  border: none;
+  border-top: 1px solid #ccc;
+  padding: 4px 8px;
+  font-size: 11px;
+  color: #666;
+  cursor: pointer;
+  text-align: left;
+}
+
+.btn-add-course:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+/* Summary */
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #444;
+  color: #fff;
+  padding: 6px 12px;
+  font-weight: 600;
+}
+
+.summary-label {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.summary-stats {
+  display: flex;
+  gap: 16px;
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+  font-size: 12px;
+}
+
+/* Placeholder styling */
+.input-text::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Leaderboard */
+.leaderboard {
+  background: #fff;
+}
+
+.leaderboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #d0d0d0;
+  border-bottom: 1px solid #888;
+  padding: 6px 8px;
+}
+
+.leaderboard-title {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.leaderboard-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-leaderboard {
+  background: #f5f5f5;
+  border: 1px solid #888;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-leaderboard:hover {
+  background: #fff;
+}
+
+.btn-leaderboard:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-add-student {
+  background: #444;
+  color: #fff;
+  border-color: #333;
+}
+
+.btn-add-student:hover {
+  background: #555;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 8px 12px;
+}
+
+.leaderboard-table th {
+  background: #e8e8e8;
+  border-bottom: 1px solid #888;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.th-rank { width: 50px; text-align: center; }
+.th-student-name { text-align: left; }
+.th-gpa { width: 100px; text-align: right; }
+.th-student-credits { width: 80px; text-align: right; }
+.th-student-actions { width: 120px; text-align: center; }
+
+.leaderboard-row td {
+  border-bottom: 1px solid #ccc;
+}
+
+.leaderboard-row:last-child td {
+  border-bottom: none;
+}
+
+.cell-rank {
+  text-align: center;
+  font-weight: 600;
+  color: #666;
+}
+
+.cell-student-name {
+  text-align: left;
+  font-weight: 500;
+}
+
+.cell-gpa {
+  text-align: right;
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+  font-size: 12px;
+}
+
+.cell-student-credits {
+  text-align: right;
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+  font-size: 12px;
+  color: #555;
+}
+
+.cell-student-actions {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-edit,
+.btn-delete {
+  background: #f5f5f5;
+  border: 1px solid #888;
+  padding: 2px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  margin: 0 2px;
+}
+
+.btn-edit:hover {
+  background: #fff;
+}
+
+.btn-delete:hover {
+  background: #fdd;
+  border-color: #c00;
+  color: #c00;
+}
+
+.leaderboard-empty {
+  text-align: center;
+  padding: 24px;
+  color: #888;
+  font-style: italic;
+}
+
+/* Calculator controls - right side */
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.current-student {
+  font-size: 11px;
+  color: #666;
+  font-style: italic;
+}
+
+.input-student-name {
+  background: #fff;
+  border: 1px solid #888;
+  padding: 3px 8px;
+  font-size: 12px;
+  width: 140px;
+}
+
+.input-student-name:focus {
+  outline: none;
+  border-color: #555;
+}
+
+.input-student-name::placeholder {
+  color: #999;
+}
+
+.btn-save-leaderboard {
+  background: #444;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-save-leaderboard:hover {
+  background: #555;
+}
+
+.btn-new-calc {
+  background: #f5f5f5;
+  border: 1px solid #888;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-new-calc:hover {
+  background: #fff;
+}
