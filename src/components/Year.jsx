@@ -1,7 +1,7 @@
 import CourseRow from './CourseRow';
 import { calculateYearGPA } from '../utils/gpaCalculator';
 
-export default function Year({ year, onUpdate, onRemove }) {
+export default function Year({ year, onUpdate, onRemove, onMoveUp, onMoveDown, canMoveUp, canMoveDown }) {
   const { gpa, totalCredits } = calculateYearGPA(year.courses);
 
   const handleNameChange = (e) => {
@@ -33,6 +33,10 @@ export default function Year({ year, onUpdate, onRemove }) {
   return (
     <div className="year-section">
       <div className="year-header">
+        <div className="year-reorder-buttons">
+          <button onClick={onMoveUp} disabled={!canMoveUp} className="btn-move-year" title="Move up">↑</button>
+          <button onClick={onMoveDown} disabled={!canMoveDown} className="btn-move-year" title="Move down">↓</button>
+        </div>
         <input
           type="text"
           value={year.name}

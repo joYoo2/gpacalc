@@ -97,3 +97,8 @@ export function calculateCumulativeGPA(years) {
     totalCredits,
   };
 }
+
+export function calculateGPAThroughYear(years, throughIndex) {
+  const yearsSubset = years.slice(0, throughIndex + 1);
+  return calculateCumulativeGPA(yearsSubset);
+}

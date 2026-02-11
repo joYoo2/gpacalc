@@ -531,3 +531,49 @@ body {
 .btn-new-calc:hover {
   background: #fff;
 }
+
+/* Year reorder buttons */
+.year-reorder-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-right: 8px;
+}
+
+.btn-move-year {
+  background: #e8e8e8;
+  border: 1px solid #999;
+  padding: 0 6px;
+  font-size: 10px;
+  line-height: 14px;
+  cursor: pointer;
+  color: #555;
+}
+
+.btn-move-year:hover:not(:disabled) {
+  background: #fff;
+  color: #333;
+}
+
+.btn-move-year:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Year filter dropdown */
+.year-filter-select {
+  background: #fff;
+  border: 1px solid #888;
+  padding: 3px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.year-filter-select:hover {
+  border-color: #555;
+}
+
+.year-filter-select:focus {
+  outline: none;
+  border-color: #555;
+}

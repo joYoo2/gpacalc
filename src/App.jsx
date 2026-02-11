@@ -75,6 +75,20 @@ export default function App() {
     setYears(newYears);
   };
 
+  const handleMoveYearUp = (index) => {
+    if (index === 0) return;
+    const newYears = [...years];
+    [newYears[index - 1], newYears[index]] = [newYears[index], newYears[index - 1]];
+    setYears(newYears);
+  };
+
+  const handleMoveYearDown = (index) => {
+    if (index === years.length - 1) return;
+    const newYears = [...years];
+    [newYears[index], newYears[index + 1]] = [newYears[index + 1], newYears[index]];
+    setYears(newYears);
+  };
+
   const handleAddYear = () => {
     const yearNames = ['Freshman Year', 'Sophomore Year', 'Junior Year', 'Senior Year'];
     const existingNames = years.map((y) => y.name);
@@ -216,6 +230,10 @@ export default function App() {
                 year={year}
                 onUpdate={(updated) => handleYearUpdate(index, updated)}
                 onRemove={() => handleYearRemove(index)}
+                onMoveUp={() => handleMoveYearUp(index)}
+                onMoveDown={() => handleMoveYearDown(index)}
+                canMoveUp={index > 0}
+                canMoveDown={index < years.length - 1}
               />
             ))}
             <Summary years={years} />
