@@ -242,8 +242,8 @@ function parseCourseRow(row) {
     }
   }
 
-  // If no valid grades, skip this course
-  if (grades.length === 0) return null;
+  // Require at least 2 grades — S2 courses with only 1 MP grade should be skipped
+  if (grades.length < 2) return null;
 
   // Determine which grade to use:
   // - If there's a "Final Grade" (typically the last grade before credits), use it
@@ -261,7 +261,7 @@ function parseCourseRow(row) {
   for (let i = texts.length - 1; i >= 0; i--) {
     const text = texts[i];
     // Match decimal numbers with 1-3 decimal places
-    const match = text.match(/^(\d+\.\d{1,3})$/);
+    const match = text.match(/^(\d+\.\d{3})$/);
     if (match) {
       const num = parseFloat(match[1]);
       // Credits are typically between 1 and 10
@@ -272,8 +272,13 @@ function parseCourseRow(row) {
     }
   }
 
-  // If no credits found, skip (might be a partial row or non-credit course)
-  if (!credits) return null;
+  // If no credits found, assign defaults (S1 reports may lack earned credits)
+  if (!credits) {
+    if (/Physical\s*Ed/i.test(courseName)) credits = 3.75;
+    else if (/^Health/i.test(courseName)) credits = 1.25;
+    else if (/Drivers?\s*Ed/i.test(courseName)) credits = 1.25;
+    else credits = 5;
+  }
 
   // Detect course level from name
   const level = detectLevel(courseName);
